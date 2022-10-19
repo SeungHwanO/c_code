@@ -3,41 +3,41 @@
 #include <time.h>
 
 int main(int argc, char* argv[]) {
-	int num = 0;    //사용자 입력
+	int num = 0;    //user input
     int start = 0;
     int i;
     srand((unsigned)time(NULL));
 
     printf("|||PLAY GAME|||\n");
-    printf("*1.UP&Down 숫자 맞추기 게임\n");
-    printf("*2.베스킨라빈스31 게임\n");
+    printf("*1.UP&Down Game\n");
+    printf("*2.Baskin Robbins 31 Game\n");
     printf("*3.Close\n");
-    printf("입력 : ");
+    printf("input : ");
     scanf("%d", &start);
 
     if ( start == 1){
-        printf("\n\n***UP&Down 숫자 맞추기 게임***\n");
+        printf("\n\n***UP&Down Game***\n");
         printf("1. game start\n");
         printf("2. close\n");
-        printf("입력 : ");
+        printf("input : ");
         int select = 0;
         scanf("%d",&select);
         if (select == 2) {
             return 0;
         }
         else if (select == 1) {
-            printf("\n__________규칙 설명__________\n");
-            printf("- 1~50의 사이의 숫자를 맞추세요.\n");
-            printf("- 기회는 총 10회 입니다.\n");
-			printf("- 수를 입력하세요. \n");
+            printf("\n__________Rule Description__________\n");
+            printf("- Guess a number from 1 to 50.\n");
+            printf("- There are a total of 10 chances..\n");
+			printf("- Please enter a number. \n");
             printf("_________GAME START_________\n\n");
 
-            //난수 설정
+            //random number setting
             int set = (rand() % 50+1);
 
-            //10회 횟수 count 반복문
+            //10 times count loop
             for (i=1; i<=10; i++) {
-                printf("[%d번째 기회]", i);
+                printf("[%dst chance]", i);
                 printf(" : ");
                 scanf("%d", &num);
 
@@ -51,10 +51,10 @@ int main(int argc, char* argv[]) {
                 }
                 else
                 {
-                    printf("\n\n***%d정답 %d번째 성공하셨습니다.***\n", set, i);
-                    printf("--우승상품, 로또 번호--\n");
+                    printf("\n\n***%danswer %dst successful.***\n", set, i);
+                    printf("--Winning prize, lottery number--\n");
                     
-                    //로또 번호 생성기
+                    //lotto number generator
                     int i, r, j, random[7];
                     srand(time(NULL));
                     for(i=0;i<=6;i++) {
@@ -70,18 +70,18 @@ int main(int argc, char* argv[]) {
                         printf("%d  ", random[i]);
                     }
                     printf("\n");
-                    printf("\n프로그램 종료\n");
+                    printf("\nEnd the program\n");
                     return 0;
                 }
             }
-            printf ("실패.\n");
-            printf ("당신은 컴퓨터에게 졌습니다.\n");
+            printf ("failure.\n");
+            printf ("You lost to the computer.\n");
         }
     }
     
     else if (start == 2) {
         int select = 0;
-        printf("***베스킨라빈스31***\n");
+        printf("***Baskin Robbins 31 Game***\n");
         printf("1. game start\n");
         printf("2. close\n");
         printf(" : ");
@@ -91,16 +91,15 @@ int main(int argc, char* argv[]) {
         }
         else if (select == 1) {
             printf("\n\n\n");
-            printf("\n__________규칙 설명__________\n");
-            printf("- 1~31의 숫자를 사용자와 컴퓨터가 번갈아 1~3\n");
-            printf("- 사이의 숫자를 부르고 더해서 31이 먼저 나오면 패.\n");
+            printf("\n__________Rule Description__________\n");
+            printf("- The number between 1 and 31 is called\nby the user and the computer alternately,\n and the number between 1 and 3 \nis added and the number 31 comes out first.\n");
             printf("\n________GAME START________\n");
             
             //선 결정
             //컴퓨터 난수 설정
             int computer = 0;
             int user = 0;
-            printf("선 정하기 [1~6 중 하나의 수를 입력하세요.]\n");
+            printf("Select [Enter a number from 1 to 6.]\n");
             printf("[user] : ");
             scanf("%d", &user);
 
@@ -109,7 +108,7 @@ int main(int argc, char* argv[]) {
             
 			while(1) {
 				if (user == computer) {
-					printf("중복되었습니다. [다시 입력하세요]\n");
+					printf("duplicated. [Please enter again]\n");
 					printf("[user] : ");
 					scanf("%d", &user);
 
@@ -118,7 +117,7 @@ int main(int argc, char* argv[]) {
 				}
 				//컴퓨터 선
 				else if (user < computer) {
-					printf("**컴퓨터가 선입니다.**\n\n");
+					printf("**computer first.**\n\n");
 
 					int i, c, cnt = 0;
 					int n1, n2;
@@ -135,7 +134,7 @@ int main(int argc, char* argv[]) {
 							}
 							printf("\n\n");
 							if (cnt == 31) {
-								printf("컴퓨터가 이겼습니다.");
+								printf("computer won.");
 								break;
 							}
 
@@ -150,7 +149,7 @@ int main(int argc, char* argv[]) {
 							printf("\n\n");
 
 							if (cnt == 31) {
-								printf("당신이 이겼습니다.");
+								printf("you win.");
 								break;
 							}
 
@@ -159,9 +158,9 @@ int main(int argc, char* argv[]) {
 					}
 				}
 
-				//사용자 선
+				//user first
 				else {
-					printf("**사용자가 선입니다.**\n\n");
+					printf("**user first.**\n\n");
 					int i, c, cnt = 0;
 					int n1, n2;
 					while(1) {
@@ -179,7 +178,7 @@ int main(int argc, char* argv[]) {
 							printf("\n\n");
 
 							if (cnt == 31) {
-								printf("당신이 이겼습니다.");
+								printf("you win.");
 								break;
 							}
 
@@ -192,7 +191,7 @@ int main(int argc, char* argv[]) {
 							}
 							printf("\n\n");
 							if (cnt == 31) {
-								printf("컴퓨터가 이겼습니다.");
+								printf("computer win.");
 								break;
 							}
 						}
